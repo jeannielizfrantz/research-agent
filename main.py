@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from agent import run_agent
 
@@ -9,7 +10,7 @@ class Query(BaseModel):
 
 @app.get("/")
 def home():
-    return {"status": "Agent is running!"}
+    return FileResponse("index.html")
 
 @app.post("/research")
 def research(query: Query):
