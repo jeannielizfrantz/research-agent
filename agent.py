@@ -1,6 +1,7 @@
+import os
 import anthropic
 
-client = anthropic.Anthropic()
+client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
 def run_agent(topic: str) -> str:
     messages = [{"role": "user", "content": topic}]
